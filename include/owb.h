@@ -57,7 +57,9 @@ extern "C" {
 #define OWB_ROM_CODE_STRING_LENGTH (17)  ///< Typical length of OneWire bus ROM ID as ASCII hex string, including null terminator
 
 #ifndef GPIO_NUM_NC
-#  define GPIO_NUM_NC (-1)  ///< ESP-IDF prior to v4.x does not define GPIO_NUM_NC
+
+#define GPIO_NUM_NC (-1)  ///< ESP-IDF prior to v4.x does not define GPIO_NUM_NC
+
 #endif
 
 struct owb_driver;
