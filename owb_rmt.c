@@ -74,6 +74,7 @@ sample code bearing this copyright.
 #include "soc/gpio_periph.h"    // for GPIO_PIN_MUX_REG
 
 #undef OW_DEBUG
+//#define OW_DEBUG
 
 
 // bus reset: duration of low phase [us]
@@ -175,7 +176,7 @@ static owb_status _reset(const OneWireBus * bus, bool * is_present)
         else
         {
             // time out occurred, this indicates an unconnected / misconfigured bus
-            ESP_LOGE(TAG, "rx_items == 0");
+            ESP_LOGD(TAG, "rx_items == 0 (_reset)");
             res = OWB_STATUS_HW_ERROR;
         }
     }
@@ -332,7 +333,7 @@ static owb_status _read_bits(const OneWireBus * bus, uint8_t *in, int number_of_
         else
         {
             // time out occurred, this indicates an unconnected / misconfigured bus
-            ESP_LOGE(TAG, "rx_items == 0");
+            ESP_LOGE(TAG, "rx_items == 0 (_read_bits)");
             res = OWB_STATUS_HW_ERROR;
         }
     }
